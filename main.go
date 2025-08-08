@@ -147,8 +147,8 @@ func removeClientFromRoom(room *Room, conn *websocket.Conn) {
 
 	if len(room.Clients) == 0 {
 		hub.mutex.Lock()
+		defer hub.mutex.Unlock()
 		delete(hub.rooms, room.ID)
-		hub.mutex.Unlock()
 	}
 }
 
