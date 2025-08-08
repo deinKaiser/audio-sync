@@ -51,7 +51,7 @@ func main() {
 
 	router := gin.Default()
 
-	router.Static("/static", "./static")
+	router.Static("/audio-sync/static", "./static")
 
 	setupRoutes(router)
 
@@ -61,11 +61,11 @@ func main() {
 }
 
 func setupRoutes(router *gin.Engine) {
-	router.GET("/", handleIndex)
-	router.POST("/upload", handleUpload)
-	router.GET("/room/:id", handleRoom)
-	router.GET("/audio/:id", handleAudio)
-	router.GET("/ws/:id", handleWebSocket)
+	router.GET("/audio-sync", handleIndex)
+	router.POST("/audio-sync/upload", handleUpload)
+	router.GET("/audio-sync/room/:id", handleRoom)
+	router.GET("/audio-sync/audio/:id", handleAudio)
+	router.GET("/audio-sync/ws/:id", handleWebSocket)
 }
 
 func handleIndex(c *gin.Context) {

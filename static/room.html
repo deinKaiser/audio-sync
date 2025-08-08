@@ -263,7 +263,7 @@
         let isSyncing = false;
 
         document.getElementById('roomId').textContent = roomId;
-        audioSource.src = `/audio/${roomId}`;
+        audioSource.src = `/audio-sync/audio/${roomId}`;
         audioPlayer.load();
         shareLink.value = window.location.href;
 
@@ -286,7 +286,7 @@
 
         function connectWebSocket() {
             const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsUrl = `${protocol}//${window.location.host}/ws/${roomId}`;
+            const wsUrl = `${protocol}//${window.location.host}/audio-sync/ws/${roomId}`;
             
             ws = new WebSocket(wsUrl);
             

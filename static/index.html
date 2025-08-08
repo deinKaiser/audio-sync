@@ -230,7 +230,7 @@
             formData.append('audio', selectedFile);
             
             try {
-                const response = await fetch('/upload', {
+                const response = await fetch('/audio-sync/upload', {
                     method: 'POST',
                     body: formData
                 });
@@ -238,7 +238,7 @@
                 const result = await response.json();
                 
                 if (response.ok) {
-                    window.location.href = `/room/${result.roomId}`;
+                    window.location.href = `/audio-sync/room/${result.roomId}`;
                 } else {
                     showError(result.error || 'Upload failed');
                 }
